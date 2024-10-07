@@ -14,7 +14,7 @@ app.get("/playlist", (req, res) => {
 app.get("/playlist/:idx", (req, res) => {
 	const { idx } = req.params;
 
-	if (+idx < playlist.length) {
+	if (0 <= +idx && +idx < playlist.length) {
 		res.json(playlist[+idx]);
 	} else {
 		res.status(404).send("That song does not exist in the playlist.");
